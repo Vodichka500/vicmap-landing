@@ -1,0 +1,75 @@
+.infinity {
+
+    width: 100%;
+    max-width: 800px;
+}
+.infinity path {
+    fill: none;
+    stroke-width: 10;
+    transform-origin: 50% 50%;
+}
+.infinity__outline {
+    stroke: #f2f2f2;
+    animation: hover 4000ms linear infinite;
+    transition: opacity 600ms;
+}
+.infinity__tracer {
+    stroke-linecap: round;
+    opacity: 0.8;
+    animation: tracer 1000ms linear reverse infinite;
+}
+.infinity__tracer--1 {
+    stroke: #f38181;
+    animation-duration: 6000ms;
+    animation-delay: -3960ms;
+}
+.infinity__tracer--2 {
+    stroke: #fce38a;
+    animation-duration: 3000ms;
+    animation-delay: -1980ms;
+}
+.infinity__tracer--3 {
+    stroke: #e23e57;
+    animation-duration: 2000ms;
+    animation-delay: -1320ms;
+}
+.infinity__tracer--4 {
+    stroke: #95e1d3;
+    animation-duration: 1500ms;
+    animation-delay: -990ms;
+}
+.infinity__tracer--5 {
+    stroke: #ffc4d0;
+    animation-duration: 1200ms;
+    animation-delay: -792ms;
+}
+.infinity__tracer--6 {
+    stroke: #00dffc;
+    animation-duration: 1000ms;
+    animation-delay: -660ms;
+}
+@keyframes tracer {
+    0% {
+        stroke-dasharray: 0, 260;
+        stroke-dashoffset: -234;
+    }
+    25% {
+        transform: translate(-2px, 2px);
+    }
+    50% {
+        stroke-dasharray: 43.3333333333, 260;
+        stroke-dashoffset: -78;
+    }
+    65% {
+        transform: translateX(2px);
+    }
+    100% {
+        stroke-dasharray: 4, 260;
+        stroke-dashoffset: 0;
+    }
+}
+@keyframes hover {
+    50% {
+        transform: translateY(2px) scale(1.02);
+    }
+}

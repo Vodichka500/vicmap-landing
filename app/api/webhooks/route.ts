@@ -7,6 +7,7 @@ import {
   deleteProductRecord,
   deletePriceRecord
 } from '@/utils/supabase/admin';
+import * as fs from 'fs';
 
 const relevantEvents = new Set([
   'product.created',
@@ -21,16 +22,21 @@ const relevantEvents = new Set([
   'customer.subscription.deleted'
 ]);
 
+export async function GET() {
+  return new Response('Webhook received.');
+}
 export async function POST(req: Request) {
   const body = await req.text();
   const sig = req.headers.get('stripe-signature') as string;
   const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
   let event: Stripe.Event;
 
+
   try {
     if (!sig || !webhookSecret)
       return new Response('Webhook secret not found.', { status: 400 });
-    event = stripe.webhooks.constructEvent(body, sig, webhookSecret);
+    // event = stripe.webhooks.constructEvent(body, sig, webhookSecret);
+    event = JSON.parse(body);
     console.log(`🔔  Webhook received: ${event.type}`);
   } catch (err: any) {
     console.log(`❌ Error message: ${err.message}`);
@@ -58,6 +64,7 @@ export async function POST(req: Request) {
         case 'customer.subscription.updated':
         case 'customer.subscription.deleted':
           const subscription = event.data.object as Stripe.Subscription;
+          console.log(subscription)
           await manageSubscriptionStatusChange(
             subscription.id,
             subscription.customer as string,
