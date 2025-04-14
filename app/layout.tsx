@@ -1,19 +1,15 @@
 import { Metadata } from 'next';
-import Footer from '@/components/ui/Footer';
-import Navbar from '@/components/ui/Navbar';
 import { Toaster } from '@/components/ui/Toasts/toaster';
 import { PropsWithChildren, Suspense } from 'react';
-import { getURL } from '@/utils/helpers';
 import 'styles/main.css';
 import { ThemeProvider } from '@/components/ui/theme-provider';
-import { AppSidebar } from '@/components/app-sidebar';
-import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
+import { SiteHeader } from '@/components/landing/landing-header';
+import { SiteFooter } from '@/components/landing/landing-footer';
 
-const title = 'Next.js Subscription Starter';
-const description = 'Brought to you by Vercel, Stripe, and Supabase.';
+const title = 'VicMap ';
+const description = 'AI-driven app to build and organize ideas and goals visually.';
 
 export const metadata: Metadata = {
-    metadataBase: new URL(getURL()),
     title: title,
     description: description,
     openGraph: {
@@ -24,11 +20,9 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({ children }: PropsWithChildren) {
     return (
-        <html lang="en" suppressHydrationWarning >
+        <html lang="en">
         <body className="bg-white dark:bg-zinc-800 text-black ">
-        <SidebarProvider>
-            <AppSidebar />
-            <SidebarTrigger/>
+
             <ThemeProvider
                 attribute="class"
                 defaultTheme="system"
@@ -36,20 +30,22 @@ export default async function RootLayout({ children }: PropsWithChildren) {
                 disableTransitionOnChange
             >
 
-                {/*<Navbar />*/}
+                <SiteHeader />
                 <main
                     id="skip"
                     className="bg-white text-black dark:bg-zinc-800 dark:text-white min-h-[calc(100dvh-4rem)] md:min-h[calc(100dvh-5rem)]"
                 >
                     {children}
                 </main>
-                {/*<Footer />*/}
+                <SiteFooter />
+
+
                 <Suspense>
                     <Toaster />
                 </Suspense>
 
             </ThemeProvider>
-        </SidebarProvider>
+
         </body>
         </html>
     );

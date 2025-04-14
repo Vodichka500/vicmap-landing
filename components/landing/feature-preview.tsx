@@ -21,7 +21,7 @@ export default function FeaturePreview() {
 
     return (
         <section id="preview" className="container mx-auto px-4 py-12 scroll-mt-20">
-            {/* TODO: Make other Title and description */}
+            {/* Make other Title and description */}
             <div className="text-center mb-12">
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-gray-600 dark:text-gray-200">Preview <span className="text-purple-500">Features</span></h2>
                 <p className="md:text-xl  text-muted-foreground max-w-2xl mx-auto">
@@ -33,7 +33,7 @@ export default function FeaturePreview() {
             <div className="mt-24 grid lg:grid-cols-4 gap-4">
 
                 {/* Feature Cards */}
-                {/* TODO: Small icons with title to mobile phones */}
+                {/* Small icons with title to mobile phones */}
                 <div className="max-sm:order-2 grid lg:grid-cols-1 sm:grid-cols-4 grid-cols-2 grid-rows-2 sm:grid-rows-1 gap-6 ">
                     <FeatureCard
                         title="AI Integration"
@@ -70,7 +70,7 @@ export default function FeaturePreview() {
                 </div>
 
                 <div
-                    className=" lg:col-span-3  relative w-full h-full bg-white rounded-xl shadow-lg mb-12 overflow-hidden">
+                    className=" lg:col-span-3 flex items-center justify-center w-full h-full bg-white rounded-xl shadow-lg mb-12 overflow-hidden">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={activeFeature}
@@ -78,7 +78,7 @@ export default function FeaturePreview() {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -10 }}
                             transition={{ duration: 0.3 }}
-                            className="w-full h-full"
+                            className="w-full h-full max-h-[500px]"
                         >
                             {activeFeature === 'ai' && <AiFeature />}
                             {activeFeature === 'roadmap' && <RoadmapFeature />}

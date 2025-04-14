@@ -28,7 +28,7 @@ export default function Banner() {
                 </h1>
             </div>
 
-            {/* TODO: Change the href to the correct link */}
+
             <div className="flex flex-col items-center mt-32 z-10">
                 <div className="bg-white dark:bg-zinc-800 py-8 px-6 max-mobile:py-3 max-mobile:px-3 rounded-full ">
                     <a

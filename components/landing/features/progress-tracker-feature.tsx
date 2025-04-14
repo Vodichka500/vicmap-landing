@@ -70,7 +70,7 @@ export default function ProgressTrackerFeature() {
                 </svg>
 
                 {/* Stats */}
-                <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-full">
+                <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 w-full">
                     <div className="flex justify-center gap-8 mt-8">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}

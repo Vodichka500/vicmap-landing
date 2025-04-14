@@ -1,26 +1,30 @@
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+
 export default function AiFeature() {
+    return (
 
-      return (
-        <div className="w-full h-full flex flex-col items-center justify-center p-8">
-            <h2 className="text-2xl font-bold mb-8 text-center">Your Path to Success</h2>
+        <div className="w-full h-full flex flex-col items-center justify-center p-4 relative">
+            <motion.h2
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-2xl font-bold mb-4 text-center absolute top-6"
+            >
+                Improve Your Workflow with AI
+            </motion.h2>
+            <div className="relative w-[70%] h-full min-h-[400px] rounded-xl mx-auto overflow-hidden"> {/* min-h можно настроить */}
 
-            <div className="w-full max-w-3xl">
-                <div className="relative">
+                <Image
+                    src="/ai-prewiew.png"
+                    alt="Preview of apps dashboard"
+                    fill
+                    className="object-contain " // или object-contain, если хочешь без обрезки
+                    priority
+                />
 
-                    <div className="max-w-[150px] mx-auto">
-                        <img src="/catWithWine.jpg" alt="cat with wine"/>
-                    </div>
-
-                </div>
-            </div>
-
-            <div className="mt-12 text-center max-w-md">
-                <h3 className="text-lg font-semibold mb-2">Currently Working On</h3>
-                <p className="text-gray-600">
-                    Execute your planned tasks systematically to make steady progress toward your goals.
-                </p>
             </div>
         </div>
-    )
-}
 
+
+    );
+}
