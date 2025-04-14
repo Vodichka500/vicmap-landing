@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import { Toaster } from '@/components/ui/Toasts/toaster';
 import { PropsWithChildren, Suspense } from 'react';
 import 'styles/main.css';
 import { ThemeProvider } from '@/components/ui/theme-provider';
@@ -38,12 +37,6 @@ export default async function RootLayout({ children }: PropsWithChildren) {
                     {children}
                 </main>
                 <SiteFooter />
-
-
-                <Suspense>
-                    <Toaster />
-                </Suspense>
-
             </ThemeProvider>
 
         </body>
